@@ -1,29 +1,29 @@
 export type config = {
+  /**
+   * Custom Useragent which gets sent
+   * @default yiff/v{currentVersion} (wrwlf.de)
+   */
+  useragent?: string;
+  /**
+   * [Killswitch](https://wrwlf.de/killswitch) Settings
+   */
+  killswitch?: {
     /**
-     * Custom Useragent which gets sent
-     * @default yiff/v{currentVersion} (wrwlf.de) 
+     * Decides if requests are routed through a [Killswitch](https://wrwlf.de/killswitch) Instance or sent to the API directly
+     * @default true
      */
-    useragent?: string;
+    enabled?: boolean;
     /**
-     * [Killswitch](https://wrwlf.de/killswitch) Settings
+     * Custom [Killswitch](https://wrwlf.de/killswitch) Instance to use
+     * @default "https://yiff.click"
      */
-    killswitch?: {
-        /**
-         * Decides if requests are routed through a [Killswitch](https://wrwlf.de/killswitch) Instance or sent to the API directly
-         * @default true
-         */
-        enabled?: boolean
-        /**
-         * Custom [Killswitch](https://wrwlf.de/killswitch) Instance to use
-         * @default "https://yiff.click"
-         */
-        instance?: string
-    }
-    /**
-     * Your API Keys
-     */
-    apikey?: {
-
+    instance?: string;
+  };
+  /**
+   * Your API Keys
+   */
+  apikey?:
+    | {
         /**
          * API Key for sheri.bot
          */
@@ -40,10 +40,16 @@ export type config = {
          * API Key for e621.net
          */
         e621?: string;
+
+        /**
+         * API Username for e621.net
+         */
+        e621Username?: string;
+
         /**
          * API Key for e926.net
          */
         e926?: string;
-    }
+      }
     | undefined;
 };

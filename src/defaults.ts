@@ -1,6 +1,9 @@
-import pkg from '../package.json'
+const version = process.env.PACKAGE_VERSION || process.env.npm_package_version;
+const useragent =
+  process.env.CUSTOM_USERAGENT || `yiff/v${version} (wrwlf.de/yiff);`;
+const killswitch = process.env.KILLSWITCH || "https://yiff.click";
 
 export default {
-    killswitch: "https://yiff.click",
-    useragent: `yiff/v${pkg.version} (wrwlf.de/yiff);`
-}
+  killswitch: killswitch,
+  useragent: useragent,
+};
